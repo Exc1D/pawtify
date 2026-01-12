@@ -10,6 +10,7 @@ const movieModalCloseBtn = document.getElementById("movie-modal-close-btn");
 // Event listeners
 genreRadios.addEventListener("change", highlightCheckedOption);
 movieModalCloseBtn.addEventListener("click", closeModal);
+movieModal.addEventListener("click", closeModal);
 getMovieBtn.addEventListener("click", renderMovie);
 
 function highlightCheckedOption(e) {
@@ -35,7 +36,7 @@ function renderMovie() {
   }
 
   movieModalInner.innerHTML = `
-  <div>
+  <div class="movie-card">
     <h3>${movie.title}</h3>
     <p>${movie.year}</p>
     <img 
@@ -77,7 +78,7 @@ function getMatchingMoviesArray() {
 
     return moviesData.filter((movie) => {
       if (isClassicsOnly) {
-        return movie.genreTags.includes(selectedGenre) && movie.isClassicsOnly;
+        return movie.genreTags.includes(selectedGenre) && movie.isClassic;
       }
       return movie.genreTags.includes(selectedGenre);
     });
