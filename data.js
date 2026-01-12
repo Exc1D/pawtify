@@ -1,5 +1,4 @@
-export // DOG DATA
-const dogsData = [
+export const dogsData = [
   {
     moodTags: ["happy"],
     isVideo: false,
