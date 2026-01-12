@@ -174,7 +174,14 @@ h1 {
   text-align: center;
 }
 
-.movie-poster {
+.movie-card h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2d3436;
+  margin-bottom: 10px;
+}
+
+.movie-card img {
   width: 100%;
   max-width: 300px;
   border-radius: 15px;
@@ -183,26 +190,13 @@ h1 {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.movie-title {
-  font-size: 28px;
-  font-weight: 700;
-  color: #2d3436;
-  margin-bottom: 10px;
-}
-
-.movie-year {
+.movie-card p {
   color: #636e72;
-  font-size: 18px;
-  margin-bottom: 15px;
-}
-
-.movie-description {
-  color: #2d3436;
   line-height: 1.6;
   margin-bottom: 15px;
 }
 
-.movie-rating {
+.movie-card p:last-child {
   display: inline-block;
   background: linear-gradient(135deg, #e74c3c, #c0392b);
   color: white;
