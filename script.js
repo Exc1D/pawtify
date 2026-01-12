@@ -1,3 +1,5 @@
+import { dogsData } from "./data.js";
+
 // TODO: Get all DOM elements you need
 const moodRadios = document.getElementById("mood-radios");
 const getImageBtn = document.getElementById("get-image-btn");
@@ -48,19 +50,48 @@ function getMatchingDogsArray() {
 
 // TODO: Function to get unique moods from dogs data
 function getMoodsArray(dogs) {
-  // Create an empty array for moods
+  const dogMoods = [];
+
   // Loop through all dogs
-  // Loop through each dog's moodTags
-  // If mood is not in array, add it
-  // Return the moods array
+  for (let dog of dogs) {
+    // Loop through each dog's moodTags
+    for (let mood of dog.moodTags) {
+      // If mood is not in array, add it
+      if (!dogMoods.includes(mood)) {
+        dogMoods.push(mood);
+      }
+    }
+  }
+  return dogMoods;
 }
 
 // TODO: Function to render mood radio buttons
 function renderMoodRadios(dogs) {
   // Get unique moods array
+  const moods = getMoodsArray(dogs);
+
   // Create HTML string for radio buttons
+  let moodRadiosHTML = "";
+
   // Loop through moods and create radio button HTML
+  for (let mood of moods) {
+    moodRadiosHTML += `
+  <div>
+    <input 
+      type="radio" 
+      id="${mood}" 
+      value="${mood}" 
+      name="${mood}"/>
+    <label 
+      for="${mood}" 
+      class="label">
+      ${mood}
+    </label>
+  </div>
+  `;
+  }
   // Set moodRadios innerHTML
+  moodRadios.innerHTML += moodRadiosHTML;
 }
 
 // TODO: Call renderMoodRadios with dogsData to initialize the page
@@ -104,3 +135,5 @@ function renderMoodRadios(dogs) {
         
         BONUS: Add your own styling improvements or additional features!
         */
+
+renderMoodRadios(dogsData);
