@@ -3,13 +3,14 @@ import { moviesData } from "./data.js";
 const genreRadios = document.getElementById("genre-radios");
 const getMovieBtn = document.getElementById("get-movie-btn");
 const classicsOnlyOption = document.getElementById("classics-only-option");
-const movieModalInner = null; // Replace with correct element
-const movieModal = null; // Replace with correct element
-const movieModalCloseBtn = null; // Replace with correct element
+const movieModalInner = document.getElementById("movie-modal-inner");
+const movieModal = document.getElementById("movie-modal");
+const movieModalCloseBtn = document.getElementById("movie-modal-close-btn");
 
 // Event listeners
 genreRadios.addEventListener("change", highlightCheckedOption);
 // 2. Add 'click' event to movieModalCloseBtn to close the modal
+movieModalCloseBtn.addEventListener("click", closeModal);
 // 3. Add 'click' event to getMovieBtn to render a movie
 getMovieBtn.addEventListener("click", renderMovie);
 
@@ -22,30 +23,38 @@ function highlightCheckedOption(e) {
   e.target.parentElement.classList.add("highlight");
 }
 
-// TODO: Function to close the modal
 function closeModal() {
-  // Set modal display to 'none'
+  movieModal.style.display = "none";
 }
 
-// TODO: Function to render a movie
 function renderMovie() {
   // Get a single movie object
   const movie = getSingleMovieObject();
-  // Update movieModalInner innerHTML with movie card HTML
-  // Include: poster, title, year, description, rating
+  movieModalInner.innerHTML = `
+  <button id="movie-modal-close-btn">×</button>
+  <div>
+    <h3>${movie.title}</h3>
+    <p>${movie.year}</p>
+    <img 
+      src="${movie.poster}" 
+      alt="${movie.title} movie poster"
+      />
+    <p>${movie.description}</p>
+    <p>${movie.rating}</p>
+  </div>
+  `;
   // Show the modal by setting display to 'flex'
+  movieModal.style.display = "flex";
 }
 
-// TODO: Function to get a single movie object
 function getSingleMovieObject() {
-  // Get the matching movies array
   const movieMatches = getMatchingMoviesArray();
   // If array has only 1 movie, return it
   if (movieMatches.length === 1) {
     return movieMatches[0];
   }
-  return movieMatches[Math.floor(Math.random() * movieMatches.length)];
   // Otherwise, return a random movie from the array
+  return movieMatches[Math.floor(Math.random() * movieMatches.length)];
 }
 
 function getMatchingMoviesArray() {
@@ -70,11 +79,10 @@ function getMatchingMoviesArray() {
 
 // Function to get unique genres from movies data
 function getGenresArray(movies) {
-  // Create an empty array for genres
   const genres = [];
+
   // Loop through all movies
   for (const movie of movies) {
-    // Loop through each movie's genreTags
     for (const genre of movie.genreTags) {
       // If genre is not in array, add it
       if (!genres.includes(genre)) {
@@ -85,12 +93,12 @@ function getGenresArray(movies) {
   return genres;
 }
 
-// TODO: Function to render genre radio buttons
 function renderGenreRadios(movies) {
-  // Get unique genres array
   const genres = getGenresArray(movies);
+
   // Create HTML string for radio buttons
   let radioBtns = "";
+
   // Loop through genres and create radio button HTML
   for (const genre of genres) {
     radioBtns += `
@@ -109,7 +117,6 @@ function renderGenreRadios(movies) {
     </div>
     `;
   }
-  // Set genreRadios innerHTML
   genreRadios.innerHTML = radioBtns;
 }
 
