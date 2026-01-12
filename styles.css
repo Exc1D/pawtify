@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-  background: rgba(255, 255, 255, 0.9);
+  background: #e9ecef;
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   max-width: 550px;
@@ -63,19 +63,14 @@ h1 {
 }
 
 .radio:hover {
-  background: #e9ecef;
+  background: white;
   transform: translateY(-2px);
 }
 
 .radio.highlight {
-  background: linear-gradient(135deg, #e74c3c, #c0392b);
-  color: white;
   border-color: #c0392b;
   transform: scale(1.05);
-}
-
-.radio.highlight label {
-  color: white;
+  accent-color: #c0392b;
 }
 
 .radio label {
