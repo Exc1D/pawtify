@@ -1,17 +1,17 @@
-import { dogsData } from "./data.js";
+import { moviesData } from "./data.js";
 
 // TODO: Get all DOM elements you need
-const moodRadios = document.getElementById("mood-radios");
-const getImageBtn = document.getElementById("get-image-btn");
-const videosOnlyOption = document.getElementById("videos-only-option");
-const dogModalInner = document.getElementById("dog-modal-inner");
-const dogModal = document.getElementById("dog-modal");
-const dogModalCloseBtn = document.getElementById("dog-modal-close-btn");
+const genreRadios = null; // Replace with correct element
+const getMovieBtn = null; // Replace with correct element
+const classicsOnlyOption = null; // Replace with correct element
+const movieModalInner = null; // Replace with correct element
+const movieModal = null; // Replace with correct element
+const movieModalCloseBtn = null; // Replace with correct element
 
 // TODO: Add event listeners
-// 1. Add 'change' event to moodRadios to highlight selected option
-// 2. Add 'click' event to dogModalCloseBtn to close the modal
-// 3. Add 'click' event to getImageBtn to render a dog image
+// 1. Add 'change' event to genreRadios to highlight selected option
+// 2. Add 'click' event to movieModalCloseBtn to close the modal
+// 3. Add 'click' event to getMovieBtn to render a movie
 
 // TODO: Function to highlight the checked radio option
 function highlightCheckedOption(e) {
@@ -25,115 +25,80 @@ function closeModal() {
   // Set modal display to 'none'
 }
 
-// TODO: Function to render a dog image
-function renderDog() {
-  // Get a single dog object
-  // Update dogModalInner innerHTML with an img tag
+// TODO: Function to render a movie
+function renderMovie() {
+  // Get a single movie object
+  // Update movieModalInner innerHTML with movie card HTML
+  // Include: poster, title, year, description, rating
   // Show the modal by setting display to 'flex'
 }
 
-// TODO: Function to get a single dog object
-function getSingleDogObject() {
-  // Get the matching dogs array
-  // If array has only 1 dog, return it
-  // Otherwise, return a random dog from the array
+// TODO: Function to get a single movie object
+function getSingleMovieObject() {
+  // Get the matching movies array
+  // If array has only 1 movie, return it
+  // Otherwise, return a random movie from the array
 }
 
-// TODO: Function to get matching dogs array
-function getMatchingDogsArray() {
+// TODO: Function to get matching movies array
+function getMatchingMoviesArray() {
   // Check if a radio button is selected
-  // Get the selected mood value
-  // Check if 'videos only' checkbox is checked
-  // Filter dogsData based on mood and video preference
+  // Get the selected genre value
+  // Check if 'classics only' checkbox is checked
+  // Filter moviesData based on genre and classic preference
   // Return the filtered array
 }
 
-// TODO: Function to get unique moods from dogs data
-function getMoodsArray(dogs) {
-  const dogMoods = [];
-
-  // Loop through all dogs
-  for (let dog of dogs) {
-    // Loop through each dog's moodTags
-    for (let mood of dog.moodTags) {
-      // If mood is not in array, add it
-      if (!dogMoods.includes(mood)) {
-        dogMoods.push(mood);
-      }
-    }
-  }
-  return dogMoods;
+// TODO: Function to get unique genres from movies data
+function getGenresArray(movies) {
+  // Create an empty array for genres
+  // Loop through all movies
+  // Loop through each movie's genreTags
+  // If genre is not in array, add it
+  // Return the genres array
 }
 
-// TODO: Function to render mood radio buttons
-function renderMoodRadios(dogs) {
-  // Get unique moods array
-  const moods = getMoodsArray(dogs);
-
+// TODO: Function to render genre radio buttons
+function renderGenreRadios(movies) {
+  // Get unique genres array
   // Create HTML string for radio buttons
-  let moodRadiosHTML = "";
-
-  // Loop through moods and create radio button HTML
-  for (let mood of moods) {
-    moodRadiosHTML += `
-  <div>
-    <input 
-      type="radio" 
-      id="${mood}" 
-      value="${mood}" 
-      name="${mood}"/>
-    <label 
-      for="${mood}" 
-      class="label">
-      ${mood}
-    </label>
-  </div>
-  `;
-  }
-  // Set moodRadios innerHTML
-  moodRadios.innerHTML += moodRadiosHTML;
+  // Loop through genres and create radio button HTML
+  // Set genreRadios innerHTML
 }
 
-// TODO: Call renderMoodRadios with dogsData to initialize the page
+// TODO: Call renderGenreRadios with moviesData to initialize the page
 
 /*
         CHALLENGES:
         
-        1. Create a function that extracts all unique moods from the dogsData array
-           - Loop through all dogs
-           - Extract mood tags
-           - Ensure no duplicates
+        YES! This uses the EXACT SAME LOGIC as the cat/dog projects, just with different data:
         
-        2. Create a function to render radio buttons dynamically
-           - Use the moods array
-           - Generate HTML for each mood
-           - Each radio should have: id, value, name="moods", and label
+        - Instead of emotions/moods → genres
+        - Instead of isGif/isVideo → isClassic
+        - Instead of cat/dog images → movie posters and info
         
-        3. Add a highlight effect when a radio is selected
-           - Listen for 'change' event on the radio buttons container
-           - Remove highlight from all radios
-           - Add highlight to the selected radio's parent element
+        The functions are identical in structure:
         
-        4. Create a function to filter dogs by mood and video preference
-           - Get the selected mood from checked radio
-           - Check if "videos only" is checked
-           - Filter dogsData based on these conditions
-           - Return matching dogs array
+        1. Extract unique values from nested arrays (getGenresArray)
+           - Same as getEmotionsArray/getMoodsArray
         
-        5. Create a function to get a single random dog
-           - If only one match, return it
-           - If multiple matches, return a random one using Math.random()
+        2. Render radio buttons dynamically (renderGenreRadios)
+           - Same pattern as before
         
-        6. Create a function to display the dog image in a modal
-           - Get a dog object
-           - Create an img element with the dog's image and alt text
-           - Show the modal
+        3. Highlight selected option (highlightCheckedOption)
+           - Identical logic
         
-        7. Add functionality to close the modal
-           - Listen for click on close button
-           - Hide the modal
+        4. Filter by genre and classic preference (getMatchingMoviesArray)
+           - Same as filtering by emotion/mood and gif/video
         
-        BONUS: Add your own styling improvements or additional features!
+        5. Get random item from array (getSingleMovieObject)
+           - Identical logic
+        
+        6. Display in modal (renderMovie)
+           - Same pattern, just different HTML structure
+        
+        7. Close modal (closeModal)
+           - Identical
+        
+        BONUS: Make the movie card look amazing with all the movie details!
         */
-
-renderMoodRadios(dogsData);

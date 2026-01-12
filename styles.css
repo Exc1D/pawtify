@@ -5,8 +5,8 @@
 }
 
 body {
-  font-family: "Quicksand", sans-serif;
-  background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #141e30 0%, #243b55 100%);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -15,25 +15,20 @@ body {
 }
 
 .container {
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-  max-width: 500px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  max-width: 550px;
   width: 100%;
   padding: 40px;
 }
 
-.logo-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.logo {
-  width: 40%;
-}
-.banner {
-  width: 60%;
+h1 {
+  color: #e74c3c;
+  font-size: 42px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 700;
 }
 
 .subtitle {
@@ -51,7 +46,7 @@ body {
 }
 
 /* Radio buttons styling */
-#mood-radios {
+#genre-radios {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -69,12 +64,18 @@ body {
 
 .radio:hover {
   background: #e9ecef;
+  transform: translateY(-2px);
 }
 
 .radio.highlight {
-  background: #fdcb6e;
-  border-color: #d63031;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  border-color: #c0392b;
   transform: scale(1.05);
+}
+
+.radio.highlight label {
+  color: white;
 }
 
 .radio label {
@@ -110,54 +111,53 @@ body {
 }
 
 /* Button styling */
-#get-image-btn {
+#get-movie-btn {
   width: 100%;
   padding: 15px;
-  background: linear-gradient(135deg, #d63031, #e17055);
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
   color: white;
   border: none;
   border-radius: 30px;
   font-size: 18px;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s;
-  font-family: "Quicksand", sans-serif;
+  transition: all 0.3s;
+  font-family: "Poppins", sans-serif;
 }
 
-#get-image-btn:hover {
+#get-movie-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(214, 48, 49, 0.4);
+  box-shadow: 0 5px 20px rgba(231, 76, 60, 0.4);
 }
 
-#get-image-btn:active {
+#get-movie-btn:active {
   transform: translateY(0);
 }
 
 /* Modal styling */
-#dog-modal {
+#movie-modal {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
-#dog-modal-inner {
+#movie-modal-inner {
   background: white;
   padding: 30px;
   border-radius: 20px;
-  max-width: 500px;
+  max-width: 600px;
   width: 90%;
   position: relative;
-  text-align: center;
 }
 
-#dog-modal-close-btn {
+#movie-modal-close-btn {
   position: absolute;
   top: 10px;
   right: 15px;
@@ -170,12 +170,48 @@ body {
   padding: 5px 10px;
 }
 
-#dog-modal-close-btn:hover {
-  color: #d63031;
+#movie-modal-close-btn:hover {
+  color: #e74c3c;
 }
 
-.dog-img {
+.movie-card {
+  text-align: center;
+}
+
+.movie-poster {
   width: 100%;
+  max-width: 300px;
   border-radius: 15px;
-  margin-top: 10px;
+  margin: 20px auto;
+  display: block;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.movie-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2d3436;
+  margin-bottom: 10px;
+}
+
+.movie-year {
+  color: #636e72;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.movie-description {
+  color: #2d3436;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.movie-rating {
+  display: inline-block;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 16px;
 }

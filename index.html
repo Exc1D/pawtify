@@ -3,49 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dog Mood Matcher Exercise</title>
+    <title>Movie Picker Exercise</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
-      <header>
-        <div class="logo-container">
-          <img
-            src="pawtify-logo.png"
-            alt="A cartoonized dog wearing headphones while winking"
-            class="logo"
-          />
-          <img src="pawtify-banner.png" alt="Pawtify banner" class="banner" />
-        </div>
-        <p class="subtitle">Your vibe, on paws!</p>
-      </header>
-      <div class="section-title">How are you feeling today?</div>
-      <div id="mood-radios">
+      <h1>🎬 Movie Picker</h1>
+      <p class="subtitle">Find your next favorite movie based on genre!</p>
+
+      <div class="section-title">What genre are you in the mood for?</div>
+      <div id="genre-radios">
         <!-- Radio buttons will be generated here by JavaScript -->
       </div>
 
       <div class="option-container">
         <div class="checkbox-wrapper">
-          <input type="checkbox" id="videos-only-option" />
-          <label for="videos-only-option">Gifs</label>
+          <input type="checkbox" id="classics-only-option" />
+          <label for="classics-only-option"
+            >Classic movies only (before 2000)</label
+          >
         </div>
       </div>
 
-      <button id="get-image-btn">Get Dog Image 🐾</button>
+      <button id="get-movie-btn">Get Movie Recommendation 🍿</button>
     </div>
 
     <!-- Modal -->
-    <div id="dog-modal">
-      <div id="dog-modal-inner">
-        <button id="dog-modal-close-btn">×</button>
-        <!-- Dog image will appear here -->
+    <div id="movie-modal">
+      <div id="movie-modal-inner">
+        <button id="movie-modal-close-btn">×</button>
+        <!-- Movie card will appear here -->
       </div>
     </div>
 
-    <script type="module" src="./script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
